@@ -42,6 +42,7 @@ let modelFactory = function (dbModel, dbObj) {
       testName: String,
       testData: Object,
       result: String,
+      username: String,
     });
     model = dbObj.model(dbModel, schema);
   }
