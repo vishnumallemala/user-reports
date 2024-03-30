@@ -20,24 +20,15 @@ let modelFactory = function (dbModel, dbObj) {
       createdAt: Date,
     });
     model = dbObj.model(dbModel, schema);
-  } else if (dbModel === "testMaster") {
+  } else if (dbModel === "testMasters") {
     schema = new dbObj.Schema({
-      id: {
-        type: String,
-        required: true,
-        unique: true,
-        index: true,
-      },
       name: {
         type: String,
         required: true,
         unique: true,
         index: true,
       },
-      status: {
-        type: String,
-        enum: ["valid", "invalid"],
-      },
+      isActive: Boolean,
     });
     model = dbObj.model(dbModel, schema);
   } else if (dbModel === "userReports") {
@@ -48,8 +39,9 @@ let modelFactory = function (dbModel, dbObj) {
         unique: true,
         index: true,
       },
-      code: String,
-      description: String,
+      testName: String,
+      testData: Object,
+      result: String,
     });
     model = dbObj.model(dbModel, schema);
   } else if (dbModel === "currency") {
