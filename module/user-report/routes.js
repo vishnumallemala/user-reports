@@ -37,6 +37,7 @@ router.post("/submitReport", async (req, res) => {
     });
 
     body["result"] = chatCompletion.choices[0].message.content;
+    body["testName"] = body.testType;
     console.log("response from open api", JSON.stringify(body));
 
     userReport.insertReport(body, (err, resp) => {
